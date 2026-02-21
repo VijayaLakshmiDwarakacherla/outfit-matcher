@@ -1,0 +1,137 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Outfit Matcher Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create a photo upload interface allowing users to capture or select clothing item photos",
+      "acceptanceCriteria": [
+        "User can take a new photo using their device camera",
+        "User can select existing photos from their device storage",
+        "Uploaded photos are displayed as a preview before submission"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ClothingUpload.tsx",
+          "operation": "create",
+          "description": "Create a clothing upload component that integrates the camera component for photo capture and file input for selecting existing photos. Use the camera/useCamera hook to support camera capture with preview. Verify the camera component's usage instructions before implementing. Display captured or selected photos as previews. Include form fields for clothing type (top/bottom/outerwear/accessory), color (HSV values), and pattern (formal/casual/sporty) selection. Use the blob-storage component's ExternalBlob.fromBytes() to handle photo data. Reference the generated image frontend/public/assets/generated/hanger-icon.dim_120x120.png as a visual element in the upload interface. Ensure camera preview has explicit non-zero dimensions with responsive sizing."
+        },
+        {
+          "path": "frontend/src/hooks/useClothingUpload.ts",
+          "operation": "create",
+          "description": "Create a custom hook to manage clothing upload state and backend interaction. Handle photo file conversion to Uint8Array, create ExternalBlob instances, and call backend.uploadClothingItem() with itemId (generated UUID), clothingType, color, pattern, and blob. Track upload progress using ExternalBlob.withUploadProgress(). Manage loading states, errors, and success callbacks."
+        },
+        {
+          "path": "frontend/src/pages/UploadPage.tsx",
+          "operation": "create",
+          "description": "Create an upload page that renders the ClothingUpload component with a hero section using the generated image frontend/public/assets/generated/upload-hero.dim_1200x400.png. Apply warm earth tone styling (terracotta, sage green, cream, warm browns) consistent with the fashion-forward theme. Include clear instructions and confirmation messaging after successful uploads."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the UploadPage into the application router. Add a route for /upload that renders the UploadPage component. Ensure navigation includes a link to access the upload interface from the main navigation or home view."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Display a gallery view of all uploaded clothing items organized by category or upload date",
+      "acceptanceCriteria": [
+        "All uploaded clothing photos are visible in a grid or list layout",
+        "Users can view their complete wardrobe collection",
+        "Photos are clearly labeled or categorized"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/WardrobeGallery.tsx",
+          "operation": "create",
+          "description": "Create a wardrobe gallery component that displays clothing items in a responsive grid layout. Fetch clothing items using backend.getClothingItems() with the current user's Principal. Use the blob-storage component's ExternalBlob.getDirectURL() method to display images efficiently with streaming and caching. Verify the blob-storage component's usage instructions before implementing. Organize items by clothing type (tops, bottoms, outerwear, accessories) with category headers. Display upload date and metadata for each item. Apply magazine-inspired layout with generous whitespace and warm earth tone styling."
+        },
+        {
+          "path": "frontend/src/hooks/useWardrobe.ts",
+          "operation": "create",
+          "description": "Create a custom hook to manage wardrobe data fetching and state. Call backend.getClothingItems() with user Principal, handle loading and error states, and provide methods to refresh the wardrobe list. Return clothing items grouped by category for easy rendering."
+        },
+        {
+          "path": "frontend/src/pages/WardrobePage.tsx",
+          "operation": "create",
+          "description": "Create a wardrobe page that renders the WardrobeGallery component. Include page header with elegant typography and navigation to upload new items. Apply the warm, sophisticated color palette throughout the page layout."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the WardrobePage into the application router. Add a route for /wardrobe that renders the WardrobePage component. Include navigation links to access the wardrobe gallery from the main navigation."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Create an outfit suggestions view displaying recommended clothing pairs with visual previews showing both items side by side",
+      "acceptanceCriteria": [
+        "Each outfit pair shows both clothing items together",
+        "Multiple pairing suggestions are displayed",
+        "Users can easily browse through different outfit combinations"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/OutfitPairCard.tsx",
+          "operation": "create",
+          "description": "Create a card component that displays a single outfit pairing with two clothing items side by side. Accept a ClothingPair object containing top and bottom items with their images and metadata. Use the blob-storage component's ExternalBlob.getDirectURL() to display both clothing item images. Verify the blob-storage component's usage instructions before implementing. Reference the generated image frontend/public/assets/generated/outfit-placeholder.dim_400x300.png as a fallback when images are loading. Display match score and styling details. Apply clean, magazine-inspired card layout with sage green accents."
+        },
+        {
+          "path": "frontend/src/components/OutfitSuggestions.tsx",
+          "operation": "create",
+          "description": "Create an outfit suggestions component that displays multiple outfit pairings in a browsable grid or carousel layout. Fetch outfit pairs using backend.generateOutfitPairs() with the current user's Principal. Render each pairing using the OutfitPairCard component. Handle loading states and empty states when no pairings are available. Sort pairings by match score. Apply warm earth tone styling with elegant typography."
+        },
+        {
+          "path": "frontend/src/hooks/useOutfitPairs.ts",
+          "operation": "create",
+          "description": "Create a custom hook to manage outfit pairing data. Call backend.generateOutfitPairs() with user Principal, handle loading and error states, and provide methods to refresh suggestions. Return sorted outfit pairs for display."
+        },
+        {
+          "path": "frontend/src/pages/OutfitsPage.tsx",
+          "operation": "create",
+          "description": "Create an outfits page that renders the OutfitSuggestions component. Include page header explaining the pairing recommendations. Provide options to refresh suggestions or navigate back to wardrobe. Apply the fashion-forward visual theme with premium aesthetic."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the OutfitsPage into the application router. Add a route for /outfits that renders the OutfitsPage component. Include navigation to access outfit suggestions from the main navigation or wardrobe view."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Design a modern, fashion-forward visual theme with warm earth tones and elegant typography that reflects style consciousness",
+      "acceptanceCriteria": [
+        "Color palette uses warm, sophisticated tones throughout the interface",
+        "Typography is elegant and readable",
+        "Layout emphasizes photo content with generous whitespace",
+        "Overall aesthetic feels premium and fashion-oriented"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update global styles to implement the warm earth tone color palette (terracotta as primary accent, sage green for secondary elements, cream for backgrounds, warm browns for text and borders). Define CSS custom properties for the color scheme. Apply elegant typography styles with appropriate font weights and line heights for headability. Set base styles that emphasize visual content with generous whitespace and clean layouts."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend the Tailwind configuration to include custom colors for the fashion-forward theme: terracotta (#E07856), sage green (#9CAF88), cream (#F5F1E8), warm brown (#8B6F47), and accent shades. Configure custom spacing and typography settings that support magazine-inspired layouts with generous whitespace. Add any custom design tokens needed for the premium aesthetic."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create a layout component that wraps all pages with consistent navigation, header, and footer elements. Implement the magazine-inspired structure with clean headers using elegant typography and the warm color palette. Include navigation links to Upload, Wardrobe, and Outfits pages. Apply the premium aesthetic with sophisticated spacing and visual hierarchy."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap all routes with the Layout component to ensure consistent application of the fashion-forward theme across all pages. Ensure the layout structure supports the magazine-inspired design with proper whitespace and visual content emphasis."
+        }
+      ]
+    }
+  ]
+}

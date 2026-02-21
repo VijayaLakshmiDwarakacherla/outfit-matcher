@@ -1,0 +1,145 @@
+{
+  "kind": "build_request",
+  "title": "Create clothing photo analyzer with outfit pairing suggestions",
+  "projectName": "Outfit Matcher",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a photo upload interface that allows users to capture or select photos of individual clothing items from their device",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "takes photo of cloths"
+        ]
+      },
+      "acceptanceCriteria": [
+        "User can take a new photo using their device camera",
+        "User can select existing photos from their device storage",
+        "Uploaded photos are displayed as a preview before submission"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Store uploaded clothing item photos in the backend with metadata including upload timestamp and user identifier",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Photos are persisted in the backend canister",
+        "Each photo has a unique identifier",
+        "Photos can be retrieved by user"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Implement backend logic to analyze clothing photos and generate outfit pairing suggestions based on color compatibility, clothing type, and style matching",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "provides the most possible pairs of cloths to wear"
+        ]
+      },
+      "acceptanceCriteria": [
+        "System identifies clothing types from photos (e.g., shirt, pants, dress, jacket)",
+        "System suggests compatible clothing pairs based on matching rules",
+        "Pairing suggestions are returned as a list of combinations"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Display a gallery view of all uploaded clothing items organized by category or upload date",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All uploaded clothing photos are visible in a grid or list layout",
+        "Users can view their complete wardrobe collection",
+        "Photos are clearly labeled or categorized"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Create an outfit suggestions view that displays recommended clothing pairs with visual previews showing both items side by side",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "provides the most possible pairs of cloths to wear"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each outfit pair shows both clothing items together",
+        "Multiple pairing suggestions are displayed",
+        "Users can easily browse through different outfit combinations"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Implement a matching algorithm that considers complementary colors, appropriate clothing combinations (tops with bottoms, outerwear with base layers), and generates the maximum number of valid outfit pairs from the available wardrobe",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "most possible pairs of cloths to wear"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Algorithm produces multiple valid outfit combinations",
+        "Pairings follow logical clothing combination rules (e.g., tops with bottoms)",
+        "System maximizes the number of suggested pairs from available items"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Design a modern, fashion-forward visual theme with warm earth tones (terracotta, sage green, cream, warm browns) and elegant typography that reflects style consciousness and wardrobe organization, with a clean, magazine-inspired layout that emphasizes visual content",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Color palette uses warm, sophisticated tones throughout the interface",
+        "Typography is elegant and readable",
+        "Layout emphasizes photo content with generous whitespace",
+        "Overall aesthetic feels premium and fashion-oriented"
+      ]
+    }
+  ],
+  "constraints": [
+    "Use only React with TypeScript and Tailwind CSS for frontend implementation",
+    "Backend must be implemented in Motoko with single-actor architecture",
+    "Do not integrate external AI services or third-party APIs for image analysis"
+  ],
+  "nonGoals": [
+    "Integration with e-commerce platforms or shopping services",
+    "Social sharing features or community outfit ratings",
+    "Weather-based outfit recommendations",
+    "Closet organization or clothing inventory management beyond pairing suggestions"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Fashion hanger icon illustration in warm terracotta color (hanger-icon.dim_120x120.png)",
+      "Outfit pairing placeholder image showing two clothing item silhouettes side by side in sage green (outfit-placeholder.dim_400x300.png)",
+      "Upload clothing hero banner with minimalist wardrobe aesthetic in cream and warm brown tones (upload-hero.dim_1200x400.png)"
+    ],
+    "edits": []
+  }
+}

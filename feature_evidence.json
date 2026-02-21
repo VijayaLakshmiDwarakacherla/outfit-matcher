@@ -1,0 +1,98 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-photo-upload-interface-that-allows-users-to-capture-or-select-photos-of-individual-clothing-items-from-their-device",
+      "featureTitle": "Create a photo upload interface that allows users to capture or select photos of individual clothing items from their device",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ClothingUpload.tsx",
+        "frontend/src/hooks/useClothingUpload.ts",
+        "frontend/src/pages/UploadPage.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "camera@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-display-a-gallery-view-of-all-uploaded-clothing-items-organized-by-category-or-upload-date",
+      "featureTitle": "Display a gallery view of all uploaded clothing items organized by category or upload date",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/WardrobeGallery.tsx",
+        "frontend/src/hooks/useWardrobe.ts",
+        "frontend/src/pages/WardrobePage.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "camera@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-an-outfit-suggestions-view-that-displays-recommended-clothing-pairs-with-visual-previews-showing-both-items-side-by-side",
+      "featureTitle": "Create an outfit suggestions view that displays recommended clothing pairs with visual previews showing both items side by side",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/OutfitPairCard.tsx",
+        "frontend/src/components/OutfitSuggestions.tsx",
+        "frontend/src/hooks/useOutfitPairs.ts",
+        "frontend/src/pages/OutfitsPage.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "camera@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-design-a-modern-fashion-forward-visual-theme-with-warm-earth-tones-terracotta-sage-green-cream-warm-browns-and-elegant-typography-that-reflects-style-consciousness-and-wardrobe-organization-with-a-clean-magazine-inspired-layout-that-emphasizes-visual-content",
+      "featureTitle": "Design a modern, fashion-forward visual theme with warm earth tones (terracotta, sage green, cream, warm browns) and elegant typography that reflects style consciousness and wardrobe organization, with a clean, magazine-inspired layout that emphasizes visual content",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "camera@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

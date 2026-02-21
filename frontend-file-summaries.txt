@@ -1,0 +1,18 @@
+{
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup, defining routes for home, upload, wardrobe, and outfits pages wrapped in a Layout component.",
+  "frontend/src/components/Layout.tsx": "Application layout component with header navigation, authentication controls, and footer with caffeine.ai attribution, wrapping all pages with consistent styling.",
+  "frontend/src/pages/HomePage.tsx": "Landing page showcasing the app's value proposition with hero section, feature cards, and call-to-action buttons using warm earth tone design.",
+  "frontend/src/pages/UploadPage.tsx": "Upload page with hero banner and ClothingUpload component for adding new clothing items to the wardrobe.",
+  "frontend/src/pages/WardrobePage.tsx": "Wardrobe gallery page displaying all uploaded clothing items organized by category with navigation to upload new items.",
+  "frontend/src/pages/OutfitsPage.tsx": "Outfit suggestions page showing AI-generated clothing pairs with navigation back to wardrobe.",
+  "frontend/src/components/ClothingUpload.tsx": "Comprehensive upload component with camera capture and file selection, including metadata inputs for clothing type, pattern, and color properties with upload progress tracking. Fixed TypeScript error by wrapping switchCamera call in arrow function.",
+  "frontend/src/components/WardrobeGallery.tsx": "Gallery component displaying clothing items grouped by category (tops, bottoms, outerwear, accessories) in a responsive grid layout.",
+  "frontend/src/components/OutfitSuggestions.tsx": "Component displaying outfit pairing suggestions in a grid with refresh functionality and match scores.",
+  "frontend/src/components/OutfitPairCard.tsx": "Card component showing a single outfit pair with side-by-side images, match percentage badge, and style information.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for fetching clothing items and outfit pairs from the backend using the authenticated user's principal.",
+  "frontend/src/hooks/useClothingUpload.ts": "Custom hook managing clothing upload mutation with progress tracking, error handling, and cache invalidation.",
+  "frontend/src/hooks/useWardrobe.ts": "Hook for managing wardrobe data with items grouped by clothing type for organized display.",
+  "frontend/src/hooks/useOutfitPairs.ts": "Hook for fetching and sorting outfit pairs by match score with refresh capability.",
+  "frontend/src/index.css": "Global styles with warm earth tone OKLCH color system (terracotta, sage green, cream, warm brown) for both light and dark modes with serif font for headings.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with custom warm earth tone colors, serif font family, and elegant shadow utilities for the fashion-forward design."
+}
